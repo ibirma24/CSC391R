@@ -10,15 +10,7 @@ min_signal = -1    # Minimum signal value
 max_signal = 1     # Maximum signal value
 
 def original_signal(t):
-    """
-    Generate the original continuous signal: sin(2πft)
     
-    Parameters:
-    t: time values (scalar or numpy array)
-    
-    Returns:
-    signal values at times t
-    """
     return np.sin(2 * np.pi * signal_freq * t)
 
 # Create a figure for our plot

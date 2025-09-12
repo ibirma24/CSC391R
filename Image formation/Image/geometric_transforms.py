@@ -62,7 +62,7 @@ print("2. Rotation: rotated by 45 degrees around the center")
 print("3. Scaling: scaled down to 80% of original size")
 
 # Save our result
-cv2.imwrite('reverse_engineered.jpg', final_image)
+cv2.imwrite('Image formation/Image/reverse_engineered.jpg', final_image)
 
 # Show all the images
 plt.show()

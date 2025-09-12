@@ -18,34 +18,13 @@ def original_signal(t):
     return np.sin(2 * np.pi * signal_freq * t)
 
 def add_gaussian_noise(signal, mean, std):
-    """
-    Add Gaussian noise to a signal
     
-    Parameters:
-    signal: original signal
-    mean: mean of the Gaussian noise
-    std: standard deviation of the noise relative to signal magnitude
-    
-    Returns:
-    noisy signal
-    """
     mag = np.max(signal) - np.min(signal)  # Signal magnitude
     noise = np.random.normal(mean, std * mag, len(signal))
     return signal + noise
 
 def quantize_signal(signal, num_bits, min_val, max_val):
-    """
-    Quantize a signal to specified number of bits
-    
-    Parameters:
-    signal: input signal
-    num_bits: number of quantization bits
-    min_val: minimum signal value
-    max_val: maximum signal value
-    
-    Returns:
-    quantized signal
-    """
+   
     num_levels = 2 ** num_bits
     # Scale and round to nearest integer level
     qs = np.round((signal - min_val) / (max_val - min_val) * (num_levels - 1))

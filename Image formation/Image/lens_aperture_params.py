@@ -50,8 +50,6 @@ plt.legend()  # Add legend
 # Show the first plot
 plt.show()
 
-# Part 2: Aperture diameter calculation and plotting
-# -----------------------------------------------
 
 # Make a new figure for our second plot
 plt.figure(figsize=(12, 8))
