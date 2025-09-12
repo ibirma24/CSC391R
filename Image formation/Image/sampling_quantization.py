@@ -11,9 +11,6 @@ max_signal = 1     # The highest value our signal can have
 
 # This function creates our original sine wave signal
 def original_signal(t):
-    # The formula for a sine wave is: sin(2π * frequency * time)
-    # 2π is about 6.28, we multiply this by our frequency and time
-    # This gives us a wave that goes up and down smoothly between -1 and 1
     return np.sin(2 * np.pi * signal_freq * t)
 
 # Create a figure for our plot
