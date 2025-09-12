@@ -17,14 +17,10 @@ def original_signal(t):
 
 # This is our new function that adds noise to a signal
 def add_gaussian_noise(signal, mean, std):
-    # First, find out how big our signal is
     mag = np.max(signal) - np.min(signal)
     
-    # Create random noise with the same length as our signal
-    # np.random.normal creates random numbers that follow a bell curve pattern
     noise = np.random.normal(mean, std * mag, len(signal))
     
-    # Add the noise to our signal
     noisy_signal = signal + noise
     
     return noisy_signal
@@ -46,7 +42,6 @@ noisy_sampled = add_gaussian_noise(sampled_signal, mean, std_dev)
 num_levels = 2 ** num_bits
 # Scale and round to nearest level
 qs = np.round((noisy_sampled - min_signal) / (max_signal - min_signal) * (num_levels - 1))
-# Convert back to signal values
 quantized_values = min_signal + qs * (max_signal - min_signal) / (num_levels - 1)
 
 # Create a new figure for our plot
@@ -71,15 +66,15 @@ plt.show()
 
 # Now let's calculate the errors
 
-# 1. Mean Square Error (MSE)
+#  Mean Square Error (MSE)
 # This tells us how different our noisy signal is from the original
 mse = np.mean((sampled_signal - noisy_sampled) ** 2)
 
-# 2. Root Mean Square Error (RMSE)
+#  Root Mean Square Error (RMSE)
 # This is just the square root of MSE
 rmse = np.sqrt(mse)
 
-# 3. Peak Signal-to-Noise Ratio (PSNR)
+#  Peak Signal-to-Noise Ratio (PSNR)
 # This tells us how strong our signal is compared to the noise
 max_signal_value = np.max(np.abs(sampled_signal))
 psnr = 10 * np.log10(max_signal_value ** 2 / mse)
